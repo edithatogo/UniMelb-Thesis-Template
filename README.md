@@ -12,6 +12,15 @@ This is a modernized version of the University of Melbourne PhD thesis template.
 * CI/CD Integration: GitHub Actions for automated compilation, linting, formatting, and releases.
 * Latest Guidelines Compliance: Updated to 2025 thesis preparation guidelines, including ORCID support, AI declarations, and no university logo usage.
 
+## Compiled Example
+
+A compiled PDF example is available for immediate download:
+
+* **[Thesis-example.pdf](Thesis-example.pdf)** - Complete compiled thesis example in the repository root
+* **[example/Thesis-compiled.pdf](example/Thesis-compiled.pdf)** - Same file in the example directory
+
+These files demonstrate the template's output and can be used as references for formatting and structure.
+
 ## Requirements
 
 * A full LaTeX distribution, such as [TeX Live](https://www.tug.org/texlive/), [MiKTeX](https://miktex.org/), or [MacTeX](https://www.tug.org/mactex/).

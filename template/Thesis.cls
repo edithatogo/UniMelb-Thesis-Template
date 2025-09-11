@@ -240,28 +240,8 @@
 \newcommand*{\DEPARTMENT}[1]{\def\DEPTNAME{#1}}
 \newcommand*{\departmenturl}[1]{\def\depturlname{#1}}
 \newcommand*{\subject}[1]{\def\subjectname{#1}}
-\newcommand*{\keywords}[1]{\def\keywordnames{#1}}
-\supervisor  {}
-\examiner    {}
-\degree      {Doctor of Philosophy}
-\thesistype  {PhD Thesis}
-\submissiondate{\today}
-\authors     {}
-\university  {The University of Melbourne}
-\UNIVERSITY  {THE UNIVERSITY OF MELBOURNE}
-\universityurl{University Web Site URL Here (include http://)}
-\school  {School Name}
-\SCHOOL  {SCHOOL NAME (IN BLOCK CAPITALS)}
-\schoolurl{School Web Site URL Here (include http://)}
-\group       {Research Group Name}
-\GROUP       {RESEARCH GROUP NAME (IN BLOCK CAPITALS)}
-\groupurl{Research Group Web Site URL Here (include http://)}
-\department     {Department Name}
-\DEPARTMENT     {DEPARTMENT NAME (IN BLOCK CAPITALS)}
-\departmenturl{Department Web Site URL Here (include http://)}
-\addresses   {}
-\subject     {}
-\keywords    {}
+\newcommand*{\orcid}[1]{\def\orcidname{#1}}
+\orcid{}
 \renewcommand\maketitle{
 	\btypeout{Title Page}
 	\hypersetup{pdftitle={\@title}}
@@ -278,24 +258,17 @@
 		\vskip 0\p@
 		\begin{center}
 			\setlength{\parskip}{0pt}
-<<<<<<< HEAD
-			%
-			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-			% Comment \includegraphics line out!!
-			%
-			{\includegraphics[width=0.3	 extwidth]{example/Figures/unimelb_logo.eps} \par}
-			%
-			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-			%
-=======
-			{\includegraphics[width=0.3\textwidth]{unimelb_logo.eps} \par}
->>>>>>> origin/feature/modernize-template
+			% University logo removed per University of Melbourne thesis guidelines
+			% {\includegraphics[width=0.3\textwidth]{unimelb_logo.eps} \par}
 			\vfill
 			{\huge \bf \@title \par}
 			\vfill
 			{\LARGE by \par}
 			\smallskip
 			{\LARGE \authornames \par}
+			\ifx\orcidname\empty\else
+				{\large ORCID: \orcidname \par}
+			\fi
 			\vfill
 			{\large A thesis submitted in total fulfillment for the \par}
 			{\large degree of \degreename \par}

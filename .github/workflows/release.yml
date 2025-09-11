@@ -1,0 +1,35 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up TeX Live
+        uses: xu-cheng/texlive-action@v2
+        with:
+          scheme: full
+          run: |
+            tlmgr install biber latexmk
+
+      - name: Compile LaTeX document
+        run: |
+          cd example
+          latexmk -lualatex -interaction=nonstopmode Thesis.tex
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            example/out/Thesis.pdf
+          generate_release_notes: true

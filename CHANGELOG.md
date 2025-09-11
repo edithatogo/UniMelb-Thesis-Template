@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.2.1] - 2025-09-11
+
+### Fixed
+
+- Fixed PDF compilation issues that prevented working PDF generation
+- Corrected incorrect `\input` paths in Thesis.tex
+- Moved `\makeglossaries` to proper location after `\begin{document}`
+- Added missing cross-reference packages (fancyref, cleveref)
+- Generated working PDF examples for users to download
+
+### Added
+
+- Working PDF examples: `Thesis-example.pdf` and `example/Thesis-compiled.pdf`
+- Users can now download functional compiled thesis examples
+
 ## [1.2.0] - 2025-09-11
 
 ### Added

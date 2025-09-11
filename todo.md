@@ -9,4 +9,4 @@
 - [x] Update Declaration and Preface to latest guidelines.
 - [x] Enhance CI/CD with linting, formatting, and release automation.
 - [x] Fix README.md lint issues (list formatting, code blocks, trailing spaces).
-- [ ] Publish new minor release (v1.2.0).
+- [x] Publish new minor release (v1.2.0).

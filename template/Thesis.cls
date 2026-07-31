@@ -240,6 +240,8 @@
 \newcommand*{\DEPARTMENT}[1]{\def\DEPTNAME{#1}}
 \newcommand*{\departmenturl}[1]{\def\depturlname{#1}}
 \newcommand*{\subject}[1]{\def\subjectname{#1}}
+\newcommand*{\keywords}[1]{\def\keywordnames{#1}}
+\keywords{}
 \newcommand*{\orcid}[1]{\def\orcidname{#1}}
 \orcid{}
 \renewcommand\maketitle{

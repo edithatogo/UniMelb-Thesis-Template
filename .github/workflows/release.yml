@@ -1,35 +1,33 @@
 name: Release
-
 on:
   push:
-    tags:
-      - 'v*'
-
+    tags: ["v*"]
 permissions:
-  contents: write
-
+  contents: read
 jobs:
   release:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up TeX Live
-        uses: xu-cheng/texlive-action@v2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          scheme: full
-          run: |
-            tlmgr install biber latexmk
-
-      - name: Compile LaTeX document
+          persist-credentials: false
+      - uses: xu-cheng/latex-action@6549dc21effb2730855a1281407ecfcececc6c1b # 4.1.0
+        with:
+          texlive_version: "2026"
+          os: debian
+          root_file: example/Thesis.tex
+          latexmk_use_lualatex: true
+      - name: Validate release PDF
         run: |
-          cd example
-          latexmk -lualatex -interaction=nonstopmode Thesis.tex
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
+          sudo apt-get update
+          sudo apt-get install --yes qpdf poppler-utils
+          test -s example/out/Thesis.pdf
+          qpdf --check example/out/Thesis.pdf
+          pdftotext example/out/Thesis.pdf - | grep -q '[^[:space:]]'
+      - uses: softprops/action-gh-release@3d0d9888cb7fd7b750713d6e236d1fcb99157228 # v3.0.2
         with:
-          files: |
-            example/out/Thesis.pdf
+          files: example/out/Thesis.pdf
           generate_release_notes: true

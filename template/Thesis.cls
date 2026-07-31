@@ -144,7 +144,7 @@
 \usepackage{booktabs}
 \usepackage{rotating}
 \usepackage{placeins}
-\newcommand{\FloatBarrier}{\clearpage}
+\renewcommand{\FloatBarrier}{\clearpage}
 \usepackage{listings}
 \usepackage{xcolor}
 
